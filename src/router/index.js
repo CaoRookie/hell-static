@@ -51,8 +51,20 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '地府管理系统', icon: 'dashboard' }
     }]
+  },
+  {
+    path: '/bigdata',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'bigdata',
+        component: () => import('@/views/bigdata/index'),
+        meta: { title: '大数据展示', icon: 'big-data' }
+      }
+    ]
   },
 
   {
@@ -60,7 +72,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: '生死簿', icon: 'lifeDieBook' },
     children: [
       {
         path: 'table',
@@ -77,6 +89,96 @@ export const constantRoutes = [
     ]
   },
 
+  {
+    path: '/ecstasy',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Ecstasy',
+        component: () => import('@/views/ecstasy/index'),
+        meta: { title: '勾魂管理', icon: 'ecstasy' }
+      }
+    ]
+  },
+  {
+    path: '/trial',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Trial',
+        component: () => import('@/views/trial/index'),
+        meta: { title: '阎王殿审判记录', icon: 'trial' }
+      }
+    ]
+  },
+  {
+    path: '/eighteen',
+    component: Layout,
+    redirect: '/eighteen/table',
+    name: 'Eighteen',
+    meta: { title: '十八层地狱', icon: 'eighteen' },
+    children: [
+      {
+        path: 'table',
+        name: 'Table',
+        component: () => import('@/views/table/index'),
+        meta: { title: 'Table', icon: 'table' }
+      },
+      {
+        path: 'tree',
+        name: 'Tree',
+        component: () => import('@/views/tree/index'),
+        meta: { title: 'Tree', icon: 'tree' }
+      }
+    ]
+  },
+  {
+    path: '/reincarnation',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Reincarnation',
+        component: () => import('@/views/reincarnation/index'),
+        meta: { title: '六道轮回', icon: 'reincarnation' }
+      }
+    ]
+  },
+  {
+    path: '/log',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'Log',
+        component: () => import('@/views/log/index'),
+        meta: { title: '日志管理', icon: 'log' }
+      }
+    ]
+  },
+  {
+    path: '/setting',
+    component: Layout,
+    redirect: '/setting/user',
+    name: 'setting',
+    meta: { title: '系统管理', icon: 'setting' },
+    children: [
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/table/index'),
+        meta: { title: '用户管理', icon: 'table' }
+      },
+      {
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '角色管理', icon: 'tree' }
+      }
+    ]
+  }/*,
   {
     path: '/form',
     component: Layout,
@@ -160,7 +262,7 @@ export const constantRoutes = [
   },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: true }*/
 ]
 
 const createRouter = () => new Router({

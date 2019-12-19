@@ -14,6 +14,7 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
+import alertModal from './components/alertModal/alertModal.js'
 
 /**
  * If you don't want to use mock-server
@@ -32,8 +33,13 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
-
 Vue.config.productionTip = false
+
+Vue.use(alertModal)
+
+Vue.prototype.$isNull = function(str) {
+  return str === undefined || str == null || str === '' || str.length <= 0 || str === 'undefined'
+}
 
 new Vue({
   el: '#app',

@@ -434,13 +434,21 @@ MapDrillDown.prototype = {
       this.provinceOrCityName = paramsName
       const provinceEngName = provinceNameChineseToEng(this.provinceOrCityName)
       console.log(provinceEngName)
-      $.get('https://orangleli.github.io/imagesResources/echartMapResources/geoProvince/' + provinceEngName + '.json', function(mapJson) {
-        that.tag++
-        that.loadingObj.hideLoading()
-        that.optionMap.series[0].data = convertData(data, provinceEngName)
-        that.optionMap.geo.map = provinceEngName
-        echarts.registerMap(provinceEngName, mapJson)
-        that.chartDom.setOption(that.optionMap)
+      $.ajax({
+        type: 'get',
+        url: 'https://orangleli.github.io/imagesResources/echartMapResources/geoProvince/' + provinceEngName + '.json',
+        success: function(mapJson) {
+          that.tag++
+          that.loadingObj.hideLoading()
+          that.optionMap.series[0].data = convertData(data, provinceEngName)
+          that.optionMap.geo.map = provinceEngName
+          echarts.registerMap(provinceEngName, mapJson)
+          that.chartDom.setOption(that.optionMap)
+        },
+        // eslint-disable-next-line handle-callback-err
+        error: function(err) {
+          that.loadingObj.hideLoading()
+        }
       })
       this.lastProvinceOrCityName = this.provinceOrCityName
     } else if (that.tag === 1) {
@@ -451,13 +459,21 @@ MapDrillDown.prototype = {
       this.provinceOrCityName = paramsName
       var provinceEngName = provinceNameChineseToEng(this.lastProvinceOrCityName)
       const cityNameEng = cityNameChineseToEng(that.provinceOrCityName, provinceEngName)
-      $.get('https://orangleli.github.io/imagesResources/echartMapResources/city/' + provinceEngName + '/' + cityNameEng + '.json', function(mapJson) {
-        that.tag++
-        that.loadingObj.hideLoading()
-        that.optionMap.series[0].data = convertData(data, provinceEngName, cityNameEng)
-        that.optionMap.geo.map = provinceEngName
-        echarts.registerMap(provinceEngName, mapJson)
-        that.chartDom.setOption(that.optionMap)
+      $.ajax({
+        type: 'get',
+        url: 'https://orangleli.github.io/imagesResources/echartMapResources/city/' + provinceEngName + '/' + cityNameEng + '.json',
+        success: function(mapJson) {
+          that.tag++
+          that.loadingObj.hideLoading()
+          that.optionMap.series[0].data = convertData(data, provinceEngName, cityNameEng)
+          that.optionMap.geo.map = provinceEngName
+          echarts.registerMap(provinceEngName, mapJson)
+          that.chartDom.setOption(that.optionMap)
+        },
+        // eslint-disable-next-line handle-callback-err
+        error: function(err) {
+          that.loadingObj.hideLoading()
+        }
       })
     } else {
       that.loadingObj.hideLoading()

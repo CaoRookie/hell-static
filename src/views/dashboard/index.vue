@@ -166,7 +166,7 @@
       </el-row>
 
       <el-row :gutter="20">
-        <el-col :span="16"><div class="grid-content bg-purple">
+        <el-col :span="16"><div class="bg-purple">
           <el-container>
             <el-header height="46px">
               <div class="header-first">地府出入境人数</div>
@@ -180,7 +180,7 @@
           </el-container>
         </div></el-col>
 
-        <el-col :span="8"><div class="grid-content bg-purple">
+        <el-col :span="8"><div class="bg-purple">
           <el-container>
             <el-header height="46px">
               <div class="header-first">各层地狱人数</div>
@@ -329,34 +329,6 @@ export default {
 }
 </script>
 
-<style>
-  .el-row {
-    margin-bottom: 20px;
-    &:last-child {
-     margin-bottom: 0;
-    }
-  }
-  .el-col {
-    border-radius: 4px;
-  }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .bg-purple{
-    background: #d3dce6;
-  }
-  .grid-content{
-    min-height: 20px;
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-</style>
-
 <style lang="scss" scoped>
 .dashboard {
   &-container {
@@ -366,6 +338,15 @@ export default {
     font-size: 30px;
     line-height: 46px;
     padding: 0 10%;
+    .bg-purple{
+      background: #d3dce6;
+    }
+    .el-row {
+      margin-bottom: 20px;
+      &:last-child {
+         margin-bottom: 0;
+      }
+    }
     .count-content {
       min-height: 166px;
       text-align: center;

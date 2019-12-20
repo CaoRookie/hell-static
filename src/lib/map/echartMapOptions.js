@@ -305,8 +305,8 @@ function MapDrillDown(echartDom, obj) {
 MapDrillDown.prototype = {
   // 设置区域颜色
   setRegions: function(regionsJson) {
-    var colors = ['#083967', '#13548d', '#1c74b2']
-    var colorsLen = colors.length
+    // var colors = ['#083967', '#13548d', '#1c74b2']
+    // var colorsLen = colors.length
     var features = regionsJson.features
     var echatsRegions = []
     // var echatsRegions=[{
@@ -326,9 +326,9 @@ MapDrillDown.prototype = {
       var regionsItem = {
         name: features[i].properties.name,
         itemStyle: {
-          normal: {
-            areaColor: colors[Math.floor(Math.random() * colorsLen)]
-          }
+          // normal: {
+          //   areaColor: colors[Math.floor(Math.random() * colorsLen)]
+          // }
         }
       }
       echatsRegions.push(regionsItem)

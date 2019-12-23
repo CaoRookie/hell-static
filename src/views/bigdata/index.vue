@@ -1,104 +1,51 @@
 <template>
   <div class="dashboard-container">
-    <!--<div class="dashboard-text">
-      <div class="up-container">
-        <el-row type="flex" class="row-bg" justify="space-between">
-          <el-col :span="4">
-            <div class="up-container-item up-container-left">
-              <div class="up-container-left-item up-container-left-first bg-purple">
-                <div class="up-container-left-first-content">
-                  <div class="up-container-left-first-content-lable">地府总人数</div>
-                  <div class="up-container-left-first-content-number">1896523</div>
-                </div>
-              </div>
-
-              <div class="up-container-left-item up-container-left-second bg-purple">
-                <div class="up-container-left-second-content">
-                </div>
-              </div>
-              <div class="up-container-right-item up-container-right-three bg-purple">
-
-              </div>
+    <div class="dashboard-text">
+      <el-row :gutter="10">
+        <el-col :span="3"><div class="content">
+          <div class="content-first border-r bg-color">
+            <div class="content-text">
+              <div class="content-text-label">地府总人数</div>
+              <div class="content-text-number">192,168,552</div>
             </div>
-          </el-col>
+          </div>
+          <div class="content-second border-r bg-color">
+            <div class="content-text">
 
-          <el-col :span="6">
-            <div class="up-container-item up-container-right">
-              <div class="up-container-right-item up-container-right-first">
-                <el-row :gutter="20" style="height: 100%">
-                  <el-col :span="4" style="height: 100%"><div class="up-container-right-item-left bg-purple">
-                    <div>
-                      <el-image style="width: 20px; height: 20px" :src="lableImage" fit="cover"></el-image>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">地</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">府</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">工</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">作</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">人</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">员</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">业</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">绩</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">统</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">计</div>
-                    </div>
-                  </div></el-col>
-                  <el-col :span="20"><div class="up-container-right-item-right bg-purple"></div></el-col>
-                </el-row>
-              </div>
-
-              <div class="up-container-right-item up-container-right-first">
-                <el-row :gutter="20">
-                  <el-col :span="4"><div class="up-container-right-item-left bg-purple">
-                    <div>
-                      <el-image style="width: 20px; height: 20px" :src="lableImage" fit="cover"></el-image>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">地</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">府</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">工</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">作</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">人</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">员</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">业</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">绩</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">统</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">计</div>
-                    </div>
-                  </div></el-col>
-                  <el-col :span="20"><div class="up-container-right-item-right bg-purple"></div></el-col>
-                </el-row>
-              </div>
-
-              <div class="up-container-right-item up-container-right-first">
-                <el-row :gutter="20">
-                  <el-col :span="4"><div class="up-container-right-item-left bg-purple">
-                    <div>
-                      <el-image style="width: 20px; height: 20px" :src="lableImage" fit="cover"></el-image>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">地</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">府</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">工</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">作</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">人</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">员</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">业</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">绩</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">统</div>
-                      <div style="width:10px;-webkit-transform: rotate(90deg);">计</div>
-                    </div>
-                  </div></el-col>
-                  <el-col :span="20"><div class="up-container-right-item-right bg-purple"></div></el-col>
-                </el-row>
-              </div>
             </div>
-          </el-col>
-        </el-row>
-      </div>
-      <div ref="chart" class="mapCls"></div>
-    </div>-->
-    <el-row :gutter="20">
-      <el-col :span="4"><div class="grid-content bg-purple"></div></el-col>
-      <el-col :span="14"><div class="grid-content bg-purple">
-        <div ref="chart" class="mapCls"></div>
-      </div></el-col>
-      <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-    </el-row>
+          </div>
+          <div class="content-third border-r bg-color">
+            <div class="content-text">
+
+            </div>
+          </div>
+        </div></el-col>
+
+        <el-col :span="15"><div class="content">
+          <div ref="chart" class="mapCls"></div>
+        </div></el-col>
+
+        <el-col :span="6"><div class="content">
+          <div class="content-first bg-color">
+            <div class="content-text">
+              <div class="content-text-label">地府总人数</div>
+              <div class="content-text-number">192,168,552</div>
+            </div>
+          </div>
+          <div class="content-second bg-color">
+            <div class="content-text">
+
+            </div>
+          </div>
+          <div class="content-third bg-color">
+            <div class="content-text">
+
+            </div>
+          </div>
+        </div></el-col>
+      </el-row>
+
+    </div>
   </div>
 </template>
 
@@ -118,30 +65,8 @@
     }
   }
 </script>
-<style>
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-  }
 
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
-  .el-carousel__item--card{
-    width: 100%;
-  }
-</style>
 <style lang="scss"  scoped>
-  .el-main{
-    padding: 0;
-  }
   .dashboard{
     &-container {
       height: calc(100vh - 50px);
@@ -149,69 +74,68 @@
       background: url('../../assets/images/bigdatabg.png');
     }
     &-text{
-      position: relative;
-      height: 100%;
-      .mapCls{
-        width: 90%;
-        margin-right: 10%;
-        height: 100%;
+       position: relative;
+       height: 100%;
+      .border-r{
+        border-radius: 4px;
       }
-      .up-container{
-        height: calc(100vh - 50px);
-        position: absolute;
-        width: 100%;
-        .bg-purple{
-          background: #2b2f3a;
+      .bg-color{
+        background: #171717;
+      }
+      .el-row{
+        height: 100%;
+        margin-bottom: 20px;
+        &:last-child {
+           margin-bottom: 0;
         }
-        .up-container-item{
-          height: calc(100vh - 50px);
-          margin:20px;
-        }
-        .up-container-left{
-          .up-container-left-item{
-            position: relative;
+        .el-col{
+          height: 100%;
+          border-radius: 4px;
+          .content{
+            height: 100%;
             text-align: center;
-            margin: 30px 0;
-          }
-          .up-container-left-first{
-            min-height: 100px;
-            .up-container-left-first-content{
+            padding: 10px;
+            .content-text{
               margin: auto;
-              height: 65px;
               left: 0;
               top: 0;
               bottom: 0;
               right: 0;
               position: absolute;
-              font-family: 微软雅黑;
-              font-weight: 400;
-              font-style: normal;
-              color:#06fecc;
-              .up-container-left-first-content-lable{
-                margin-bottom: 10px;
-                font-size: 16px;
-              }
-              .up-container-left-first-content-number{
-                font-size: 32px;
+              padding: 3px;
+            }
+            .content-first{
+              position: relative;
+              min-height: 100px;
+              .content-text{
+                height: 52px;
+                color: #00FFCC;
+                font-family: '微軟正黑體 Bold', '微軟正黑體 Regular', '微軟正黑體';
+                font-weight: 700;
+                font-style: normal;
+                .content-text-label{
+                  font-size: 13px;
+                  float: left;
+                  margin-left: 9px;
+                }
+                .content-text-number{
+                  font-size: 28px;
+                }
               }
             }
-          }
-        }
-        .up-container-right{
-          .up-container-right-item{
-            height: 30%;
-            margin: 30px 0;
-            .el-row .el-col{
+            .content-second{
+              position: relative;
+              height: 50%;
+              min-height: calc(100vh - 300px);
+              margin: 10px 0;
+            }
+            .content-third{
+              position: relative;
+              min-height: 200px;
+            }
+            .mapCls{
               height: 100%;
             }
-          }
-          .up-container-right-item-left{
-            min-height: 240px;
-            height: 100%;
-          }
-          .up-container-right-item-right{
-            min-height: 240px;
-            height: 100%;
           }
         }
       }

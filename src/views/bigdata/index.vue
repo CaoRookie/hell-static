@@ -63,7 +63,24 @@
                 <div class="horizontal-line"></div>
                 <span>地府运营指标统计</span>
               </div></el-col>
-              <el-col :span="21"><div class="content bg-color"></div></el-col>
+              <el-col :span="21"><div class="content-right-item-right bg-color">
+                <el-row :gutter="20">
+                  <el-col :span="12"><div class="content bg-color">
+                    <div id="index1" ref="index1" style="height: 100%"></div>
+                  </div></el-col>
+                  <el-col :span="12"><div class="content bg-color">
+                    <div id="index2" ref="index2" style="height: 100%"></div>
+                  </div></el-col>
+                </el-row>
+                <el-row :gutter="20">
+                  <el-col :span="12"><div class="content bg-color">
+                    <div id="index3" ref="index3" style="height: 100%"></div>
+                  </div></el-col>
+                  <el-col :span="12"><div class="content bg-color">
+                    <div id="index4" ref="index4" style="height: 100%"></div>
+                  </div></el-col>
+                </el-row>
+              </div></el-col>
             </el-row>
           </div>
         </div></el-col>
@@ -84,15 +101,27 @@
         countManNumber:'192,168,1199',
         lableImage:require('../../assets/images/lable_img.png'),
         mincoinRate:'',
-        colors:['#5793f3', '#d14a61', '#675bba']
+        index1:'',
+        index2:'',
+        index3:'',
+        index4:'',
+        colors:['#5793f3', '#d14a61', '#675bba','#00ffcc','#171717','#ffffff','#ff991a']
       }
     },
     mounted () {
       new MapDrillDown(this.$refs.chart, this).init()
       this.mincoinRateDaw();
+      this.index1Daw();
+      this.index2Daw();
+      this.index3Daw();
+      this.index4Daw();
       let that = this;
       window.onresize = function () {
         that.mincoinRate.resize();
+        that.index1.resize();
+        that.index2.resize();
+        that.index3.resize();
+        that.index4.resize();
       }
     },
     methods:{
@@ -114,7 +143,22 @@
               left: '11%'
             },
             legend: {
-              data:['RMB','冥币','汇率']
+              data:[
+                {'name':'RMB',
+                  textStyle: {
+                    color: this.colors[0]
+                  }
+                },
+                {'name':'冥币',
+                  textStyle: {
+                    color: this.colors[1]
+                  }
+                },
+                {'name':'汇率',
+                  textStyle: {
+                    color: this.colors[2]
+                  }
+                }]
             },
             xAxis: [
               {
@@ -202,7 +246,311 @@
             ]
           }
         )
-      }
+      },
+      index1Daw(){
+        // 基于准备好的dom，初始化echarts实例
+        this.index1 = echarts.init(this.$refs.index1)
+        // 绘制图表
+        this.index1.setOption(
+          {
+            color:[this.colors[3], this.colors[4]],
+            series: [
+              {
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['86%', '90%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[
+                  {
+                    value: 100,
+                    itemStyle:{
+                      normal:{
+                        color:this.colors[3]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                name:'一个指标',
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['70%', '86%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                label: { //  饼图图形上的文本标签
+                  normal: { // normal 是图形在默认状态下的样式
+                    show: true,
+                    position: 'center',
+                    color: this.colors[5],
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    formatter: '{d}%\n\n{b}' // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[{
+                  value: 40,
+                  name: "一个指标",
+                  label: {
+                    normal: {
+                      show: true
+                    }
+                  }
+                },
+                  {
+                    value: 60,
+                    name: '正常',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        )
+      },
+      index2Daw(){
+        // 基于准备好的dom，初始化echarts实例
+        this.index2 = echarts.init(this.$refs.index2)
+        // 绘制图表
+        this.index2.setOption(
+          {
+            color:[this.colors[6], this.colors[4]],
+            series: [
+              {
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['86%', '90%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[
+                  {
+                    value: 100,
+                    itemStyle:{
+                      normal:{
+                        color:this.colors[6]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                name:'异常预警',
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['70%', '86%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                label: { //  饼图图形上的文本标签
+                  normal: { // normal 是图形在默认状态下的样式
+                    show: true,
+                    position: 'center',
+                    color: this.colors[5],
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    formatter: '{d}%\n\n{b}' // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[{
+                  value: 40,
+                  name: "异常预警",
+                  label: {
+                    normal: {
+                      show: true
+                    }
+                  }
+                },
+                  {
+                    value: 60,
+                    name: '正常',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        )
+      },
+      index3Daw(){
+        // 基于准备好的dom，初始化echarts实例
+        this.index3 = echarts.init(this.$refs.index3)
+        // 绘制图表
+        this.index3.setOption(
+          {
+            color:[this.colors[3], this.colors[4]],
+            series: [
+              {
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['86%', '90%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[
+                  {
+                    value: 100,
+                    itemStyle:{
+                      normal:{
+                        color:this.colors[3]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                name:'一个指标',
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['70%', '86%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                label: { //  饼图图形上的文本标签
+                  normal: { // normal 是图形在默认状态下的样式
+                    show: true,
+                    position: 'center',
+                    color: this.colors[5],
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    formatter: '{d}%\n\n{b}' // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[{
+                  value: 40,
+                  name: "一个指标",
+                  label: {
+                    normal: {
+                      show: true
+                    }
+                  }
+                },
+                  {
+                    value: 60,
+                    name: '正常',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        )
+      },
+      index4Daw(){
+        // 基于准备好的dom，初始化echarts实例
+        this.index4 = echarts.init(this.$refs.index4)
+        // 绘制图表
+        this.index4.setOption(
+          {
+            color:[this.colors[3], this.colors[4]],
+            series: [
+              {
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['86%', '90%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[
+                  {
+                    value: 100,
+                    itemStyle:{
+                      normal:{
+                        color:this.colors[3]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                name:'一个指标',
+                type: 'pie',
+                center: ['50%', '50%'], // 饼图的圆心坐标
+                radius: ['70%', '86%'],
+                avoidLabelOverlap: false,
+                hoverAnimation: false,
+                label: { //  饼图图形上的文本标签
+                  normal: { // normal 是图形在默认状态下的样式
+                    show: true,
+                    position: 'center',
+                    color: this.colors[5],
+                    fontSize: 14,
+                    fontWeight: 'bold',
+                    formatter: '{d}%\n\n{b}' // {b}:数据名； {c}：数据值； {d}：百分比，可以自定义显示内容，
+                  }
+                },
+                labelLine: {
+                  normal: {
+                    show: false
+                  }
+                },
+                data:[{
+                  value: 40,
+                  name: "一个指标",
+                  label: {
+                    normal: {
+                      show: true
+                    }
+                  }
+                },
+                  {
+                    value: 60,
+                    name: '正常',
+                    label: {
+                      normal: {
+                        show: false
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        )
+      },
     }
   }
 </script>
@@ -295,6 +643,9 @@
               .content-right-item-right{
                 height: 100%;
                 padding: 25px 7px;
+                .el-row{
+                  height: 50%;
+                }
                 .content-right-item-right-label{
                   height: 16.666667%;
                 }

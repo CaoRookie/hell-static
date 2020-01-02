@@ -11,9 +11,7 @@
             </div>
           </div>
           <div class="content-left-second border-r bg-color">
-            <div class="content-text">
 
-            </div>
           </div>
           <div class="content-left-third border-r bg-color">
             <div class="content-text">
@@ -45,7 +43,6 @@
               </div></el-col>
             </el-row>
           </div>
-
           <div class="content-right-item">
             <el-row :gutter="20">
               <el-col :span="3"><div class="content-right-item-left bg-color">
@@ -93,6 +90,7 @@
 <script>
   import {MapDrillDown} from '@/lib/map/echartMapOptions'
   import echarts from '@/lib/echarts'
+  // import verticalMarquee from '@/components/VerticalMarquee/index.vue'
 
   export default {
     name: 'bigdata',

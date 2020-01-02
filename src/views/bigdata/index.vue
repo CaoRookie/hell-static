@@ -613,13 +613,13 @@
             }
             .content-left-second{
               position: relative;
-              height: 50%;
-              min-height: calc(100vh - 300px);
+              height: 55%;
+              min-height: calc(100vh - 400px);
               margin: 10px 0;
             }
             .content-left-third{
               position: relative;
-              min-height: 200px;
+              min-height: 300px;
             }
             .content-right-item{
               position: relative;

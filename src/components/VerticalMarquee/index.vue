@@ -1,31 +1,39 @@
 <template>
   <div class="marquee">
-    <el-image style="width: 29px;height: 8px" :src="previousImage" fit="cover"></el-image>
-    <div class="content">
-      <div class="invertedTrapezoid"></div>
-      <div class="rectangle"></div>
-      <div class="box">
-        <div class="box-content">
-          <div class="box-item">
-            <div>本层人数</div>
-            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
-          </div>
-          <div class="box-item">
-            <div>痛苦值</div>
-            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
-          </div>
-          <div class="box-item">
-            <div>物资补给</div>
-            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
-          </div>
-        </div>
-
+    <div class="marquee-content">
+      <div class="marquee-content-pre">
+        <a href="javascript:void(0)">
+          <el-image style="width: 29px;height: 8px" :src="previousImage" fit="cover"></el-image>
+        </a>
       </div>
-      <div class="trapezoid"></div>
-      <div class="trapezoid"></div>
-      <div class="trapezoid"></div>
+      <div class="marquee-content-center">
+        <div class="bgImage invertedTrapezoid">XX地狱</div>
+        <div class="bgImage rectangle">XX2地狱</div>
+        <div class="bgImage box">
+          <div class="box-content">
+            <div class="box-item">
+              <span>本层人数</span>
+              <el-progress :stroke-width="2" :percentage="20" :show-text="false"  :color="customColorMethod"></el-progress>
+            </div>
+            <div class="box-item">
+              <span>痛苦值</span>
+              <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
+            </div>
+            <div class="box-item">
+              <span>物资补给</span>
+              <el-progress :stroke-width="2" :percentage="80" :show-text="false"  :color="customColorMethod"></el-progress>
+            </div>
+          </div>
+
+        </div>
+        <div class="bgImage trapezoid">XX3地狱</div>
+        <div class="bgImage trapezoid">XX4地狱</div>
+        <div class="bgImage trapezoid">XX5地狱</div>
+      </div>
+      <div class="marquee-content-next"><a href="javascript:void(0)">
+        <el-image style="width: 29px;height: 8px" :src="nextImage" fit="cover"></el-image>
+      </a></div>
     </div>
-    <el-image style="width: 29px;height: 8px" :src="nextImage" fit="cover"></el-image>
   </div>
 </template>
 
@@ -39,49 +47,75 @@
       return{
         previousImage: previousImage,
         nextImage: nextImage,
-        hellArr:[{'hellName':'铁磨地狱','peopleNumber':'200','painValue':'10','supplies':'50'}]
+        hellArr:[{'hellName':'铁磨地狱','peopleNumber':'200','painValue':'10','supplies':'20'}]
       }
     },
     methods:{
       customColorMethod(percentage) {
         if (percentage < 30) {
-          return '#3be6bc';
-        } else if (percentage < 70) {
           return '#e73f41';
-        } else {
+        } else if (percentage < 70) {
           return '#ff991a';
+        }else {
+          return '#3be6bc';
         }
       },
     }
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .marquee{
     height: 100%;
-    .content{
-      height: calc(100vh - 16px);
+    .marquee-content{
+      margin: 0 15px;
+      height: 100%;
+    }
+    .marquee-content-pre{
+      padding-top: 5px;
       text-align: center;
+    }
+    .marquee-content-next{
+      padding-bottom: 5px;
+      text-align: center;
+    }
+    .marquee-content-center{
+      height: calc(100% - 46px);
+      .bgImage{
+        background-size:cover;
+        height: 60px;
+        line-height: 60px;
+      }
       .invertedTrapezoid{
-        height: 55px;
+        color: #246454;
         text-align: center;
-        line-height: 55px;
-        background: url('/images/invertedTrapezoid.png');
-        background-size: 100% 100%;
-        width: 100%;
+        background: url("./images/invertedTrapezoid.png") no-repeat center;
       }
       .rectangle{
-        height: 12.5%;
-        background: url('/images/rectangle.png');
+        color: #00ffcc;
+        line-height: 45px;
+        height: 45px;
+        text-align: center;
+        background: url("./images/rectangle.png") no-repeat center;
       }
       .box{
-        height: 37.5%;
-        color: #999999;
-        background: url("./images/box.png");
+        min-height: 173px;
+        margin-top: -5px;
+        background: url("./images/box.png") no-repeat center;
+        .box-content{
+          margin: 0 16px;
+          height: 100%;
+        }
+        .box-item{
+          font-size: 14px;
+          height: 25%;
+          color: #999999;
+        }
       }
       .trapezoid{
-        height: 12.5%;
-        background: url("./images/trapezoid.png");
+        color: #246454;
+        text-align: center;
+        background: url("./images/trapezoid.png") no-repeat center;
       }
     }
 

@@ -1,22 +1,22 @@
 <template>
   <div class="marquee">
-    <div class="prev"><el-image style="width: 100%; height: 20px" :src="previousImage" fit="cover"></el-image></div>
+    <el-image style="width: 29px;height: 8px" :src="previousImage" fit="cover"></el-image>
     <div class="content">
       <div class="invertedTrapezoid"></div>
       <div class="rectangle"></div>
       <div class="box">
-        <div>
-          <div>
+        <div class="box-content">
+          <div class="box-item">
             <div>本层人数</div>
-            <el-progress :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
+            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
           </div>
-          <div>
+          <div class="box-item">
             <div>痛苦值</div>
-            <el-progress :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
+            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
           </div>
-          <div>
+          <div class="box-item">
             <div>物资补给</div>
-            <el-progress :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
+            <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
           </div>
         </div>
 
@@ -25,7 +25,7 @@
       <div class="trapezoid"></div>
       <div class="trapezoid"></div>
     </div>
-    <div class="next"><el-image style="width: 100%; height: 20px" :src="nextImage" fit="cover"></el-image></div>
+    <el-image style="width: 29px;height: 8px" :src="nextImage" fit="cover"></el-image>
   </div>
 </template>
 
@@ -58,18 +58,30 @@
 
 <style scoped>
   .marquee{
+    height: 100%;
     .content{
+      height: calc(100vh - 16px);
+      text-align: center;
       .invertedTrapezoid{
-        background: url("/images/invertedTrapezoid.png");
+        height: 55px;
+        text-align: center;
+        line-height: 55px;
+        background: url('/images/invertedTrapezoid.png');
+        background-size: 100% 100%;
+        width: 100%;
       }
       .rectangle{
-        background: url("/images/rectangle.png");
+        height: 12.5%;
+        background: url('/images/rectangle.png');
       }
       .box{
-        background: url("/images/box.png");
+        height: 37.5%;
+        color: #999999;
+        background: url("./images/box.png");
       }
       .trapezoid{
-        background: url("/images/trapezoid.png");
+        height: 12.5%;
+        background: url("./images/trapezoid.png");
       }
     }
 

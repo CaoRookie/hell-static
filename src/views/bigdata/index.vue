@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="content-left-second border-r bg-color">
-
+            <vertical-marquee></vertical-marquee>
           </div>
           <div class="content-left-third border-r bg-color">
             <div class="content-text">
@@ -90,10 +90,13 @@
 <script>
   import {MapDrillDown} from '@/lib/map/echartMapOptions'
   import echarts from '@/lib/echarts'
-  // import verticalMarquee from '@/components/VerticalMarquee/index.vue'
+  import VerticalMarquee from '@/components/VerticalMarquee/index.vue'
 
   export default {
     name: 'bigdata',
+    components: {
+      VerticalMarquee
+    },
     data(){
       return{
         countManNumber:'192,168,1199',

@@ -13,5 +13,6 @@ describe('VerticalMarquee', () => {
         }
       }
     })
+    wrapper.setProps({ previousImage: 'sssss' })
   })
 })

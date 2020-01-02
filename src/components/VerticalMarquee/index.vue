@@ -30,12 +30,15 @@
 </template>
 
 <script>
+  import previousImage from './images/previous.png'
+  import nextImage from './images/next.png'
+
   export default {
     name: 'VerticalMarquee',
     data(){
       return{
-        previousImage: require('images/previous.png'),
-        nextImage: require('images/next.png'),
+        previousImage: previousImage,
+        nextImage: nextImage,
         hellArr:[{'hellName':'铁磨地狱','peopleNumber':'200','painValue':'10','supplies':'50'}]
       }
     },

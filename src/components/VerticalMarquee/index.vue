@@ -7,28 +7,27 @@
         </a>
       </div>
       <div class="marquee-content-center">
-        <div class="bgImage invertedTrapezoid">XX地狱</div>
-        <div class="bgImage rectangle">XX2地狱</div>
+        <div class="bgImage invertedTrapezoid">铁磨地狱</div>
+        <div class="bgImage rectangle">孤独地狱</div>
         <div class="bgImage box">
           <div class="box-content">
             <div class="box-item">
-              <span>本层人数</span>
+              <div class="box-item-label">本层人数</div>
               <el-progress :stroke-width="2" :percentage="20" :show-text="false"  :color="customColorMethod"></el-progress>
             </div>
             <div class="box-item">
-              <span>痛苦值</span>
+              <div class="box-item-label">痛苦值</div>
               <el-progress :stroke-width="2" :percentage="50" :show-text="false"  :color="customColorMethod"></el-progress>
             </div>
             <div class="box-item">
-              <span>物资补给</span>
+              <div class="box-item-label">物资补给</div>
               <el-progress :stroke-width="2" :percentage="80" :show-text="false"  :color="customColorMethod"></el-progress>
             </div>
           </div>
-
         </div>
-        <div class="bgImage trapezoid">XX3地狱</div>
-        <div class="bgImage trapezoid">XX4地狱</div>
-        <div class="bgImage trapezoid">XX5地狱</div>
+        <div class="bgImage trapezoid">畜生地狱</div>
+        <div class="bgImage trapezoid">剥皮地狱</div>
+        <div class="bgImage trapezoid">沸屎地狱</div>
       </div>
       <div class="marquee-content-next"><a href="javascript:void(0)">
         <el-image style="width: 29px;height: 8px" :src="nextImage" fit="cover"></el-image>
@@ -103,13 +102,19 @@
         margin-top: -5px;
         background: url("./images/box.png") no-repeat center;
         .box-content{
-          margin: 0 16px;
+          padding: 16px;
           height: 100%;
         }
         .box-item{
-          font-size: 14px;
-          height: 25%;
-          color: #999999;
+          line-height: 200%;
+          height:30%;
+          &:nth-child(2){
+             margin: 5px 0;
+          }
+          .box-item-label{
+            font-size: 14px;
+            color: #999999;
+          }
         }
       }
       .trapezoid{

@@ -15,7 +15,21 @@
           </div>
           <div class="content-left-third border-r bg-color">
             <div class="content-text">
-
+              <div class="content-left-third-title">
+                <div class="content-left-third-title-text">地狱受刑人员性别</div>
+              </div>
+              <div class="content-left-third-content">
+                <el-row>
+                  <el-col :span="12">
+                    <div class="content-left-third-content-num">6542</div>
+                    <div class="content-left-third-content-label">男性</div>
+                  </el-col>
+                  <el-col :span="12">
+                    <div class="content-left-third-content-num" style="color: #ff991b">6542</div>
+                    <div class="content-left-third-content-label">女性</div>
+                  </el-col>
+                </el-row>
+              </div>
             </div>
           </div>
         </div></el-col>
@@ -559,6 +573,12 @@
 <style lang="scss"  scoped>
   .dashboard{
     &-container {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       height: calc(100vh - 50px);
       min-height: 500px;
       background: url('../../assets/images/bigdatabg.png');
@@ -613,13 +633,47 @@
             }
             .content-left-second{
               position: relative;
-              height: 55%;
-              min-height: calc(100vh - 400px);
+              min-height: calc(100vh - 435px);
               margin: 10px 0;
             }
             .content-left-third{
               position: relative;
               min-height: 300px;
+              width: 400px;
+              .content-text{
+                padding: 30px;
+                color: #ffffff;
+                text-align: center;
+                .content-left-third-title{
+                  height: 40%;
+                  position: relative;
+                  .content-left-third-title-text{
+                    height: 20px;
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    position: absolute;
+                    margin: auto;
+                  }
+                }
+                .content-left-third-content{
+                  text-align: center;
+                  .el-col{
+                    &:nth-child(1){
+                       border-radius: 0;
+                       border-right: 1px solid #fff;
+                    }
+                     .content-left-third-content-num{
+                       font-size: 20px;
+                       color: #00ffcc;
+                     }
+                     .content-left-third-content-label{
+                       font-size: 14px;
+                     }
+                  }
+                }
+              }
             }
             .content-right-item{
               position: relative;

@@ -55,6 +55,10 @@
     },
     created(){
       this.findAllHell();
+      const that = this
+      setInterval(function(){
+        that.changeHell(1)
+      }, 3000);
     },
     methods:{
       customColorMethod(percentage) {
@@ -101,7 +105,6 @@
       },
       getCurrentHellNameByIndex(index){
         let requestIndex = this.currentIndex + index
-        console.log(requestIndex)
         if (index > 0 && requestIndex >= this.hellArr.length){
           requestIndex = requestIndex - this.hellArr.length;
         }
